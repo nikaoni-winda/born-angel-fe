@@ -146,8 +146,17 @@ const EditSchedulePage = () => {
         }
     };
 
+    const now = new Date();
+    const minDateTime = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 16);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (new Date(formData.start_time) < new Date()) {
+            toast.error('Start time cannot be in the past');
+            return;
+        }
+
         setSubmitting(true);
 
         try {
@@ -228,6 +237,7 @@ const EditSchedulePage = () => {
                                         name="start_time"
                                         value={formData.start_time}
                                         onChange={handleStartTimeChange}
+                                        min={minDateTime}
                                         required
                                         className="w-full pl-12 pr-4 py-3 rounded-xl border border-polar-night/10 focus:outline-none focus:ring-2 focus:ring-frost-byte/50 bg-white"
                                     />

@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme {
+  --color-frozen: #f8dfed;
+  --color-icy-veil: #e4b6d0;
+  --color-glacier-glow: #de8fab;
+  --color-frost-byte: #cf6a86;
+  --color-midnight-chill: #8f0f24;
+  --color-polar-night: #5b1824;
+  --color-bg-primary: #f8dfed;
+  --color-bg-secondary: #ffffff;
+  --color-bg-accent: #e4b6d0;
+  --color-text-primary: #5b1824;
+  --color-text-secondary: #8f0f24;
+
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Outfit', sans-serif;
+  --font-lobster: 'Lobster', cursive;
+}
+
+@layer base {
+  :root {
+    font-family: var(--font-body);
+    font-size: 16px;
+    /* Base size */
+    line-height: 1.6;
+    font-weight: 300;
+    /* Outfit looks elegant in lighter weights */
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    display: block;
+    min-width: 320px;
+    min-height: 100vh;
+    font-size: 1.05rem;
+    /* Slightly larger than standard, but smaller than previous serif setting */
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    color: var(--color-text-secondary);
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    color: var(--color-text-primary);
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-family: var(--font-body);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@layer components {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .btn-primary {
+    padding: 0.7rem 1.8rem;
+    background-color: var(--color-polar-night);
+    color: #fff;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-midnight-chill);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(91, 24, 36, 0.3);
+  }
+}

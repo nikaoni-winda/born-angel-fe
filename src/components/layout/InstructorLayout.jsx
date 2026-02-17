@@ -46,8 +46,8 @@ const InstructorLayout = ({ children }) => {
                 <div className="h-full flex flex-col">
                     {/* Logo/Header */}
                     <div className="p-8 pb-4">
-                        <h1 className="text-2xl font-black text-polar-night tracking-tighter">
-                            BORN <span className="text-frost-byte">ANGEL</span>
+                        <h1 className="font-heading text-[1.8rem] text-polar-night font-bold tracking-tight leading-none">
+                            Born <span className="italic font-light text-frost-byte">Angel</span>
                         </h1>
                         <p className="text-xs font-bold text-text-primary/40 uppercase tracking-widest mt-1">
                             Instructor Portal

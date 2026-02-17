@@ -14,6 +14,12 @@ const authService = {
      */
     register: async (userData) => {
         const response = await api.post('/register', userData);
+        const { access_token, user } = response.data;
+
+        // Store token and user data (same as login)
+        localStorage.setItem(STORAGE_KEYS.TOKEN, access_token);
+        localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(user));
+
         return response.data;
     },
 

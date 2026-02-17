@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { toast } from 'react-hot-toast';
-import { User, Mail, Lock, CheckCircle, ArrowRight, Loader2, ChevronLeft } from 'lucide-react';
+import { User, Mail, Lock, CheckCircle, ArrowRight, Loader2, ChevronLeft, Phone } from 'lucide-react';
 
 const RegisterPage = () => {
   const [userData, setUserData] = useState({
     name: '',
     email: '',
+    phone_number: '',
     password: '',
     password_confirmation: ''
   });
@@ -29,8 +30,8 @@ const RegisterPage = () => {
     setLoading(true);
     try {
       await register(userData);
-      toast.success('Registration successful! Please verify your email.');
-      navigate('/login');
+      toast.success('Registration successful!');
+      navigate('/user/dashboard');
     } catch (error) {
       console.error('Registration error:', error);
       toast.error(error.message || 'Failed to register. Please try again.');
@@ -87,6 +88,24 @@ const RegisterPage = () => {
                 className="w-full bg-white border border-polar-night/10 text-polar-night text-sm rounded-xl focus:ring-2 focus:ring-frost-byte/20 focus:border-frost-byte block w-full pl-10 p-3 placeholder-polar-night/30 transition-all shadow-sm group-hover:border-polar-night/30"
                 placeholder="name@example.com"
                 value={userData.email}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+
+          <div className="space-y-1.5">
+            <label className="text-sm font-medium text-polar-night ml-1" htmlFor="phone_number">Phone Number</label>
+            <div className="relative group">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-polar-night/40 group-focus-within:text-frost-byte transition-colors">
+                <Phone size={18} />
+              </div>
+              <input
+                id="phone_number"
+                name="phone_number"
+                type="tel"
+                className="w-full bg-white border border-polar-night/10 text-polar-night text-sm rounded-xl focus:ring-2 focus:ring-frost-byte/20 focus:border-frost-byte block w-full pl-10 p-3 placeholder-polar-night/30 transition-all shadow-sm group-hover:border-polar-night/30"
+                placeholder="08xxxxxxxxxx"
+                value={userData.phone_number}
                 onChange={handleChange}
               />
             </div>

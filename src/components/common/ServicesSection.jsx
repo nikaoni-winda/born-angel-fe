@@ -41,10 +41,10 @@ const ServicesSection = () => {
                     </h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-5xl mx-auto mb-12">
                     {services.map((service) => (
-                        <div key={service.id} className="bg-white rounded-2xl overflow-hidden transition-all duration-300 flex flex-col shadow-[0_8px_24px_rgba(0,0,0,0.06)] relative group hover:shadow-[0_16px_36px_rgba(91,24,36,0.12)]">
-                            <div className="w-full h-[280px] lg:h-[340px] overflow-hidden relative bg-icy-veil">
+                        <div key={service.id} className="bg-white rounded-2xl overflow-hidden transition-all duration-300 flex flex-col shadow-[0_8px_24px_rgba(0,0,0,0.06)] relative group hover:shadow-[0_16px_36px_rgba(91,24,36,0.12)] max-w-[320px] mx-auto w-full">
+                            <div className="w-full aspect-[3/4] overflow-hidden relative bg-icy-veil">
                                 <img src={service.image} alt={service.name} className="w-full h-full object-cover transition-transform duration-500" />
                                 <div className="absolute inset-0 bg-polar-night/40 flex items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-[2px] group-hover:opacity-100">
                                     <Link to={`/services/${service.id}`} className="px-7 py-3 bg-white text-polar-night font-heading font-semibold text-[0.95rem] rounded-full transition-all duration-300 no-underline shadow-lg hover:bg-polar-night hover:text-white">
@@ -52,9 +52,9 @@ const ServicesSection = () => {
                                     </Link>
                                 </div>
                             </div>
-                            <div className="py-5 px-6 text-center bg-white relative z-10">
-                                <h3 className="font-heading text-[1.2rem] font-semibold text-polar-night mb-1">{service.name}</h3>
-                                <p className="font-body text-[1rem] text-frost-byte font-medium tracking-wide m-0">IDR {parseFloat(service.price).toLocaleString('id-ID')}</p>
+                            <div className="py-4 px-5 text-center bg-white relative z-10">
+                                <h3 className="font-heading text-[1.1rem] font-semibold text-polar-night mb-1">{service.name}</h3>
+                                <p className="font-body text-[0.95rem] text-frost-byte font-medium tracking-wide m-0">IDR {parseFloat(service.price).toLocaleString('id-ID')}</p>
                             </div>
                         </div>
                     ))}

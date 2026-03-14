@@ -43,7 +43,7 @@ const ServicesPage = () => {
       <Navbar />
 
       <main className="flex-grow pt-8 pb-16">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-10">
             <h1 className="font-heading text-2xl lg:text-3xl text-polar-night font-bold leading-tight mb-2">
               Our Luxury <span className="text-frost-byte italic font-light">Classes</span>
@@ -59,14 +59,14 @@ const ServicesPage = () => {
               <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-frost-byte"></div>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.map((service) => (
                 <div
                   key={service.id}
-                  className="group relative bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-all duration-500 hover:shadow-[0_8px_30px_rgba(91,24,36,0.1)] flex flex-col h-full border border-white/50"
+                  className="group relative bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-all duration-500 hover:shadow-[0_8px_30px_rgba(91,24,36,0.1)] flex flex-col h-full border border-white/50 max-w-[320px] mx-auto w-full"
                 >
                   {/* Image Container */}
-                  <Link to={`/services/${service.id}`} className="relative h-[200px] overflow-hidden block">
+                  <Link to={`/services/${service.id}`} className="relative aspect-[3/4] overflow-hidden block">
                     <img
                       src={service.image}
                       alt={service.name}
@@ -78,9 +78,9 @@ const ServicesPage = () => {
                   </Link>
 
                   {/* Content */}
-                  <div className="p-5 flex-grow flex flex-col">
+                  <div className="p-4 flex-grow flex flex-col">
                     <Link to={`/services/${service.id}`}>
-                      <h3 className="font-heading text-lg text-polar-night font-bold mb-2 group-hover:text-frost-byte transition-colors">
+                      <h3 className="font-heading text-base text-polar-night font-bold mb-1.5 group-hover:text-frost-byte transition-colors">
                         {service.name}
                       </h3>
                     </Link>
